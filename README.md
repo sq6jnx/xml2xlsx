@@ -1,5 +1,9 @@
 # XML2XLSX -- XMLish API for OpenPyXL
 
+
+[![Build Status](https://travis-ci.org/sq6jnx/xml2xlsx.svg?branch=master)](https://travis-ci.org/sq6jnx/xml2xlsx)
+
+
 Provided XML Element Tree will return `openpyxl.Workbook` object.
 
 This XMLish API tries to mimic OpenPyXL API and is supposed to be thin
