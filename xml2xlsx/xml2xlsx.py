@@ -37,7 +37,7 @@ def process(root):
     # get fonts and fills
     for f in root.xpath('font'):
         fonts[f.text] = openpyxl.styles.Font(**dict(f.attrib))
-    for pf in root.xpath('fill | pattern_fill'):
+    for pf in root.xpath('pattern_fill'):
         fills[pf.text] = openpyxl.styles.PatternFill(**dict(pf.attrib))
 
     for i, s in enumerate(root.xpath('sheet')):
@@ -49,12 +49,11 @@ def process(root):
             sheet = workbook.create_sheet(title=s.attrib['title'])
 
         # add freeze for sheet (if defined)
-        for fp in s.xpath('freeze | freeze_pane | freeze_panes'):
+        for fp in s.xpath('freeze_panes'):
             sheet.freeze_panes = create_cell(sheet, cell_element=fp)
             break
 
-        # cells can be defined both as <c> or <cell>
-        for c in s.xpath('c | cell'):
+        for c in s.xpath('cell'):
             cell = create_cell(sheet, cell_element=c)
 
             try:
