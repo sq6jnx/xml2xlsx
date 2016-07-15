@@ -1,8 +1,6 @@
 # XML2XLSX -- XMLish API for OpenPyXL
 
-
 [![Build Status](https://travis-ci.org/sq6jnx/xml2xlsx.svg?branch=master)](https://travis-ci.org/sq6jnx/xml2xlsx)
-
 
 Provided XML Element Tree will return `openpyxl.Workbook` object.
 
@@ -32,7 +30,7 @@ Given XML file like:
 
 ... pass it through `xml2xlsx`:
 
-```
+```bash
 xml2xlsx.py < input.xml > output.xlsx
 ```
 
@@ -47,6 +45,7 @@ Please note how to define and name formatting elements:
 <!-- (...) -->
 <c pos="A3" font="bold" fill="gray">Hello, World</c>
 <!-- (...) -->
+
 ```
 
 `<font>` tag defines font style named `bold` and is the used in cell A3 using
@@ -63,8 +62,8 @@ with OpenPyXL.
 ## Tricks
 
 I'm not sure, if this is good idea, but:
- - to create cell you can use `<cell>` or `<c>` tag, for short.
- - for freezing panes: `<freeze_panes>`, `<freeze>`, `<freeze_pane>`
- - to define fills: `<pattern_fill>` or `<fill>`
+- to create cell you can use `<cell>` or `<c>` tag, for short.
+- for freezing panes: `<freeze_panes>`, `<freeze>`, `<freeze_pane>`
+- to define fills: `<pattern_fill>` or `<fill>`
 
 Again, I'm not sure if these "shortcuts" are good idea.
