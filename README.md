@@ -14,16 +14,16 @@ Given XML file like:
 ```xml
 <workbook>
     <font bold="True">bold</font>
-    <fill fill_type="solid" start_color="FFCCCCCC">gray</fill>
+    <pattern_fill fill_type="solid" start_color="FFCCCCCC">gray</pattern_fill>
     <sheet title="one">
-        <freeze row="3" column="5"/>
+        <freeze_panes row="3" column="5"/>
         <cell row="1" column="1">Hello World!</cell>
     </sheet>
     <sheet title="one">
-        <freeze pos="K10"/>
-        <c pos="A1">2</c>
-        <c pos="A2">2</c>
-        <c pos="A3" font="bold" fill="gray">=SUM(A1:A2)</c>
+        <freeze_panes pos="K10"/>
+        <cell pos="A1">2</cell>
+        <cell pos="A2">2</cell>
+        <cell pos="A3" font="bold" fill="gray">=SUM(A1:A2)</cell>
     </sheet>
 </workbook>
 ```
@@ -41,9 +41,9 @@ Please note how to define and name formatting elements:
  ```xml
  <!-- (...) -->
 <font bold="True">bold</font>
-<fill fill_type="solid" start_color="FFCCCCCC">gray</fill>
+<pattern_fill fill_type="solid" start_color="FFCCCCCC">gray</pattern_fill>
 <!-- (...) -->
-<c pos="A3" font="bold" fill="gray">Hello, World</c>
+<cell="A3" font="bold" fill="gray">Hello, World</cell
 <!-- (...) -->
 
 ```
@@ -58,12 +58,3 @@ and freeze panes. That's all, actually, but is subject to change in the future.
 
 In the future, however, I'd like XML2XLSX to cover most of what you can do
 with OpenPyXL.
-
-## Tricks
-
-I'm not sure, if this is good idea, but:
-- to create cell you can use `<cell>` or `<c>` tag, for short.
-- for freezing panes: `<freeze_panes>`, `<freeze>`, `<freeze_pane>`
-- to define fills: `<pattern_fill>` or `<fill>`
-
-Again, I'm not sure if these "shortcuts" are good idea.
