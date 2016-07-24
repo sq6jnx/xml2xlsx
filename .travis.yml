@@ -8,4 +8,8 @@ python:
   - "3.5"
   - "pypy"
   - "pypy3"
-script: python setup.py bdist_wheel --universal
+install:
+  - pip install -r requirements.txt -r requirements-dev.txt
+script:
+ - nosetests
+ - python setup.py bdist_wheel --universal

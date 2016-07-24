@@ -14,5 +14,10 @@ setup(
         "lxml",
         "openpyxl",
     ],
+    tests_requires=[
+        "lxml",
+        "pytest",
+        "openpyxl",
+    ],
     zip_safe=False,
 )

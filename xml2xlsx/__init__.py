@@ -44,9 +44,11 @@ def process(root):
         # First sheet is already there and does not have to be created
         if i == 0:
             sheet = workbook.active
-            sheet.title = s.attrib['title']
         else:
-            sheet = workbook.create_sheet(title=s.attrib['title'])
+            sheet = workbook.create_sheet()
+        
+        if 'title' in s.attrib:
+            sheet.title = s.attrib['title']
 
         # add freeze for sheet (if defined)
         for fp in s.xpath('freeze_panes'):
